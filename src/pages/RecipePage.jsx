@@ -1,11 +1,34 @@
-//import { useState } from 'react'; // Deze regel is verwijderd omdat useState momenteel niet wordt gebruikt
-import { Heading, Box, Center, Image } from '@chakra-ui/react';
+//import { PortfolioItemCard } from '../components/PortfolioItemCard';
+//import { portfolioItems } from '../utils/data';
+import { RecipeItemPage } from './RecipeListPage'
+import { TextInput } from 'components/ui/TextInput';
+import { Center } from '@chakra-ui/react';
 
-const RecipePage = ({ recipe, goBack }) => {
+export const RecipePage = ({ clickFn }) => {
   return (
-    <Center h="100vh" flexDir="column">
-      <Box maxW="32rem">
-        <Heading>Your Recipe App{recipe.label}</Heading>
+    <Center gap={8} h="100vh" bgColor="blue.100">
+      {TextInput.map((item) => (
+        <RecipeItemPage clickFn={clickFn} item={item} key={item.recipe} />
+      ))}
+    </Center>
+  );
+};
+
+
+//import { useState } from 'react'; // Deze regel is verwijderd omdat useState momenteel niet wordt gebruikt
+//import { Heading, Center, Image } from '@chakra-ui/react';
+//import { TextInput } from '../components/ui/TextInput';
+//import { RecipeItemPage } '../components/ui/RecipeItemPage';
+
+
+
+/*export const RecipePage = ({ recipe, goBack }) => {
+  return (
+    <Center h="100vh" flexDir="column" gap={8} bgColor={"green.100"}>
+      {data.map((item)=>(
+        <TextInput changeFn={changeFn} item={recipe} key={item.recipe}/>
+      ))}
+         <Heading>Your Recipe App{recipe.label}</Heading>
         {/* <Image src={recipe.recipe.image} alt={recipe.recipe.label} style={{ width: '200px' }} />
                 <h2>Meal type: {recipe.mealType}</h2>
                 <p>Dish type: {recipe.dishType}</p>
@@ -25,11 +48,10 @@ const RecipePage = ({ recipe, goBack }) => {
                     {recipe.totalNutrients.map((label, index) => (
                         <li key={index}>{label}</li>
                     ))}
-                </ul> */}
+                </ul> 
         <button onClick={goBack}>Back to Recipes</button>
-      </Box>
     </Center>
   );
-};
+};*/
 
-export default RecipePage;
+
