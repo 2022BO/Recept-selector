@@ -9,10 +9,12 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { RecipeListPage } from './pages/RecipeListPage';
-import RecipePage from './pages/RecipePage';
+import {RecipePage} from './pages/RecipePage';
 
 export const App = () => {
   const [selectedRecipe, setSelectedRecipe] = useState(null);
+
+  const greeting = "Welcome to our restaurant ";
 
   return (
     <div>
@@ -39,11 +41,15 @@ export const App = () => {
       </Menu>
 
       {selectedRecipe ? (
-        <RecipePage recipe={selectedRecipe} goBack={setSelectedRecipe} />
+        <RecipePage recipe={selectedRecipe} onClick={setSelectedRecipe} />
       ) : (
-        <RecipeListPage setSelectedRecipe={setSelectedRecipe} />
+        <>
+        <h1>{greeting}</h1>
+        <RecipeListPage onClick={setSelectedRecipe} />
+        </>
       )}
     </div>
+   
   );
 };
-export default App;
+
