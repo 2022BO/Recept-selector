@@ -1,4 +1,44 @@
-import { useState } from 'react';
+import {
+  Center,
+  Image,
+  Card,
+  CardBody,
+  Stack,
+  Heading,
+  Text,
+  Flex,
+  Button,
+} from '@chakra-ui/react';
+import { Tag } from '/components/ui/RecipeItemPage';
+
+export const RecipeListPage = ({ item, clickFn }) => {
+  return (
+    <Center bgColor="blue.100" h="100vh" flexDirection="column">
+      <Card borderRadius="xl" w="3xl" h="3xl">
+        <CardBody>
+          <Image h="md" w="100%" src={item.image} borderRadius="xl" />
+          <Stack mt="6" spacing="3">
+            <Heading size="md">{item.label}</Heading>
+            <Text>{item.healthLabels}</Text>
+            <Flex gap={2}>
+              {item.hits.map((recipe) => (
+                <Tag key={recipe} size="md">
+                  {healthLabels}
+                </Tag>
+              ))}
+            </Flex>
+            <Button w="fit-content" onClick={() => clickFn()}>
+              Back to overview
+            </Button>
+          </Stack>
+        </CardBody>
+      </Card>
+    </Center>
+  );
+};
+
+
+/*import { useState } from 'react';
 import { Center, Heading, Input } from '@chakra-ui/react';
 import { data } from '../utils/data';
 import {
@@ -40,8 +80,9 @@ export const RecipeListPage = ({ setSelectedRecipe }) => {
   };
 
   return (
-    <Center h="100vh" flexDir="column">
+    <Center h="100vh" flexDir="column" color={'green.50'}>
       <Box maxW="32rem">
+        
         <Heading mb={3}>Your Recipe App</Heading>
         <Stack spacing={3}>
           <Input
@@ -49,7 +90,7 @@ export const RecipeListPage = ({ setSelectedRecipe }) => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search by recipe name"
-            color="tomato"
+            color={'green.50'}
             mb="4"
             _placeholder={{ opacity: 1, color: 'gray.500' }}
           />
@@ -92,11 +133,12 @@ export const RecipeListPage = ({ setSelectedRecipe }) => {
           maxW="sm"
           key={recipe.foodId}
           onClick={() => setSelectedRecipe(recipe)}
+          color={'green.500'}
         >
-          <CardBody>
+          <CardBody >
             <Image src={recipe.image} alt={recipe.label} borderRadius="lg" />
-            <Stack mt="6" spacing="3">
-              <Heading size="md">{recipe.label}</Heading>
+            <Stack mt="6" spacing="3" >
+              <Heading size="md">{recipe.label} </Heading>
               <Text
                 fontSize={{
                   base: 'sm',
@@ -139,4 +181,4 @@ export const RecipeListPage = ({ setSelectedRecipe }) => {
       ))}
     </Center>
   );
-};
+};*/
