@@ -3,7 +3,7 @@ import { data } from './utils/data';
 import { RecipeListPage } from './RecipeListPage';
 import { TextInput } from '@chakra-ui/react';
 
-export const RecipeSearch = ({ clickFn }) => {
+export const RecipeSearch = ({ onClick }) => {
   const [searchField, setSearchField] = useState('');
 
   const matchedRecipes = data.filter((recipe) => {
@@ -20,7 +20,8 @@ export const RecipeSearch = ({ clickFn }) => {
     <>
       <label>Search for recipes:</label>
       <TextInput onChange={handleChange} w={200} mb={8} />
-      <RecipeListPage clickFn={clickFn} recipes={recipes} />
+      <RecipeListPage onClick={onClick} recipes={matchedRecipes} />
+      <Input value= {searchField} htmlSize={4} witdh='auto'/>
     </>
   );
 };
