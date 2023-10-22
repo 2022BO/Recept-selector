@@ -9,21 +9,21 @@ import {
   Flex,
   Button,
 } from '@chakra-ui/react';
-import { Tag } from '/components/ui/RecipeItemPage';
+import { Tag } from '../components/ui/TextInput'; 
 
-export const RecipeListPage = ({ item, clickFn }) => {
+export const RecipeListPage = ({ hits, recipe, clickFn }) => {
   return (
     <Center bgColor="blue.100" h="100vh" flexDirection="column">
       <Card borderRadius="xl" w="3xl" h="3xl">
         <CardBody>
-          <Image h="md" w="100%" src={item.image} borderRadius="xl" />
+          <Image h="md" w="100%" src={recipe.image} borderRadius="xl" />
           <Stack mt="6" spacing="3">
-            <Heading size="md">{item.label}</Heading>
-            <Text>{item.healthLabels}</Text>
+            <Heading size="md">{recipe.label}</Heading>
+            <Text>{recipe.healthLabels.join(", ")}</Text>
             <Flex gap={2}>
-              {item.hits.map((recipe) => (
+              {hits.map((recipe) => (
                 <Tag key={recipe} size="md">
-                  {healthLabels}
+                  {recipe}
                 </Tag>
               ))}
             </Flex>
