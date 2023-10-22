@@ -9,7 +9,7 @@ import {
   Flex,
   Button,
 } from '@chakra-ui/react';
-import { Tag } from '../components/ui/TextInput'; 
+import { Tag } from '../components/TextInput'; 
 
 export const RecipeListPage = ({ hits, recipe, clickFn }) => {
   return (
