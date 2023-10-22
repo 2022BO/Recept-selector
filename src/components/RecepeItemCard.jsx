@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/react';
 import { Tag } from './ui/RecipeItemPage';
 
-export const TextInput = ({ recipe, clickFn }) => {
+export const RecipeItemCard= ({ recipe, clickFn }) => {
   return (
     <Card
       borderRadius="xl"
