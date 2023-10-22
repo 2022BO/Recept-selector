@@ -1,15 +1,16 @@
 //import { PortfolioItemCard } from '../components/PortfolioItemCard';
 //import { portfolioItems } from '../utils/data';
-import React from 'react';
-import { RecipeItemPage } from './RecipeListPage';
+
+
 import { data } from '../utils/data';
 import { Center } from '@chakra-ui/react';
+import { RecipeItemCard } from '../components/RecepeItemCard';
 
 export const RecipePage = ({ clickFn }) => {
   return (
     <Center gap={8} h="100vh" bgColor="blue.100">
       {data.map((hits) => (
-        <RecipeItemPage clickFn={clickFn} hits={hits} key={hits.recipe.label} />
+        <RecipeItemCard clickFn={clickFn} hits={hits} key={hits.recipe.label} />
       ))}
     </Center>
   );
